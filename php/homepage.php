@@ -3,13 +3,14 @@
 	<head>
 		<title>CF-Toolkit</title>
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<link href="../css/homepage.css" rel="stylesheet">
 		<script src="../js/html5shiv.min.js"></script>
 	    <script src="../js/respond.min.js"></script>
 	</head>
 
 	<body>
 
-		<nav class = "navbar navbar-default navbar-fixed-top" id ="my-navbar">
+		<nav class = "navbar navbar-inverse navbar-fixed-top" id ="my-navbar">
 			<div class = "container-fluid">
 			    <div class = "navbar-header">
 			      	<button type="button" class ="navbar-toggle" data-toggle = "collapse" data-target ="#navbar-collapse">
@@ -18,7 +19,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 				  	</button>
-		         	<a href="#" class="navbar-brand">CF-Toolkit</a>	
+		         	<a href="homepage.php" class="navbar-brand">CF-Toolkit</a>	
 			    </div>
 		       
 		      	<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -34,6 +35,8 @@
 		      	</div>
 		    </div>
 	   	</nav>
+
+	   	<img src = "../images/wall.jpg" width='100%'>
 
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
