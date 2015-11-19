@@ -1,3 +1,3 @@
 # Resurrection
 
-Rebuilding Cf toolkit
+Rebuilding Codeforces toolkit
