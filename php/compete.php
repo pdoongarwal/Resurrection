@@ -102,7 +102,7 @@
 
 					$response=json_decode($response,true);  //converting it to PHP friendly format
 					//values for coder1
-					if($response['status']!="OK")
+					if($response['status']=="FAILED")
 					{
 					  echo "INVALID USERNAME ".$coder1;
 					   die();
@@ -125,7 +125,7 @@
 
 
 
-					$coder2="worse";
+					$coder2="tourist";
 					$url="http://codeforces.com/api/user.info?handles=".$coder2;
 					$proxy='172.31.102.14:3128';
 					$proxyauth='edcguest:edcguest';
@@ -250,7 +250,7 @@
 				
 				<td  align='center'>
 					<?php
-						echo $country1.'<br>';
+						echo $country2.'<br>';
 					?>
 				</td>
 			</tr>
@@ -399,7 +399,7 @@
 				
 				<td align='center'>
 					<?php
-						echo 'Highest Rank: '.$maxrank1;
+						echo 'Highest Rank: '.$maxrank2;
 					?>
 				</td>
 			</tr>
