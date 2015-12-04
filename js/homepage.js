@@ -1,7 +1,8 @@
 var quotes = [
-    "quote1",
-    "quote2",
-    "quote3"
+    "Compete with your friends",
+    "Keep track of coders",
+    "Set your goals",
+    "Create an account now"
 ];
 
 var i = -1;
@@ -17,4 +18,4 @@ setInterval(function() {
             i = -1;
         }
     }, delay);   
-}, 6 * 1000);
+}, 8 * 1000);
