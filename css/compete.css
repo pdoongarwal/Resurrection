@@ -1,4 +1,18 @@
+.navbar-inverse .navbar-nav>li>a {
+	color: #ffffff;
+	font-family: "Whitney SSm A", "Whitney SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+#my-navbar {
+	background-color: #212121;
+}
+.jumbotron {
+	background-color: #212121;
+}
+body {
+	background-color: #3E464C;
+}
 .table {
+	background-color: white;
 	width: 90%;
 	box-shadow: 5px 5px 5px 5px #888888;
 	margin: auto;

@@ -2,3 +2,12 @@
 	color: #ffffff;
 	font-family: "Whitney SSm A", "Whitney SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+#my-navbar {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.navbar-brand {
+	margin-left: 5px;
+	margin-right: 5px;
+}

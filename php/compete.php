@@ -3,13 +3,20 @@
 	<head>
 		<title>Compete</title>
 		<link href="../css/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" type="text/css" href="../css/compete.css">
 	    <script src="../js/html5shiv.min.js"></script>
 	    <script src="../js/respond.min.js"></script>
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
+	    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
+	    <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
+	    <script src="../js/modernizr.js"></script> <!-- Modernizr -->
+		<link rel="stylesheet" type="text/css" href="../css/compete.css">
 	</head>
 
 	<body>
-		<nav class = "navbar navbar-default navbar-fixed-top" id ="my-navbar">
+		<nav class="main-nav navbar navbar-inverse navbar-fixed-top" id ="my-navbar">
+			
 			<div class = "container-fluid">
 			    <div class = "navbar-header">
 			      	<button type="button" class ="navbar-toggle" data-toggle = "collapse" data-target ="#navbar-collapse">
@@ -18,17 +25,25 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 				  	</button>
-		         	<a href="#" class="navbar-brand">CF Toolkit</a>	
+		         	<a href="../php/homepage.php" class="navbar-brand">CF-Toolkit</a>	
 			    </div>
 		       
 		      	<div class="collapse navbar-collapse" id="navbar-collapse">
 		         	<ul class="nav navbar-nav">
+				        <li><a href="compete.php">Compete</a>
+				        <li><a href='allsub.php'>All Submissions</a>
+				        <li><a href="lastsub.php">Last Submissions</a>
+				        <li><a href="compare.php">Compare</a>
+				        <li><a href="bugecode.com">Bug-e-Code</a>
+				        <li><a href="notice.php">Notice</a>
 					</ul>
 		      	</div>
 		    </div>
-	   	</nav>
+		</nav>
 
 	   	<div class="jumbotron" id="search">
+
+	   		<br>
 	      
 	      	<div class="container text-center">
 	      		<h1>Let the Comparison Begin!</h1>
@@ -59,7 +74,7 @@
 
 	    <div class="container">
 
-			<div>
+			<div id="table">
 				<?php
 
 					function getNumberFromRank($rank) {
@@ -85,7 +100,14 @@
 							return 10;
 					}
 
-					$coder1="MayankPratap";
+
+					if(isset($_POST['coder1']) && isset($_POST['coder2'])){
+						$coder1=$_POST['coder1'];
+                        $coder2=$_POST['coder2'];
+
+				    }		
+
+					
 					$url="http://codeforces.com/api/user.info?handles=".$coder1;
 					$proxy='172.31.102.14:3128';
 					$proxyauth='edcguest:edcguest';
@@ -104,7 +126,7 @@
 					//values for coder1
 					if($response['status']=="FAILED")
 					{
-					  echo "INVALID USERNAME ".$coder1;
+					  echo "INVALID USERNAME1 ".$coder1;
 					   die();
 					}
 					$response=$response['result'];
@@ -113,7 +135,7 @@
 					$handle1=$response['handle'];
 					$country1=$response['country'];
 					$organization1=$response['organization'];
-					$rank1=$response['rank'];
+					 $rank1=$response['rank'];
 					$rating1=$response['rating'];
 					$maxrank1=$response['maxRank'];
 					$maxrating1=$response['maxRating'];
@@ -123,9 +145,9 @@
 					$contribution1=$response['contribution'];
 					$registartionTimeSeconds1=$response['registrationTimeSeconds'];
 
+                    
 
-
-					$coder2="tourist";
+					
 					$url="http://codeforces.com/api/user.info?handles=".$coder2;
 					$proxy='172.31.102.14:3128';
 					$proxyauth='edcguest:edcguest';
@@ -142,7 +164,7 @@
 
 					$response=json_decode($response,true);  //converting it to PHP friendly format
 					//values for coder1
-					if($response['status']!="OK")
+					if($response['status']=="FAILED")
 					{
 					  echo "INVALID USERNAME ".$coder2;
 					   die();
@@ -442,5 +464,6 @@
 
 	   	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	    <script src="../js/bootstrap.min.js"></script>
+	    <script src="../js/main.js"></script>
 	</body>
 </html>

@@ -26,7 +26,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 				  	</button>
-		         	<a href="homepage.php" class="navbar-brand">CF-Toolkit</a>	
+		         	<a href="../php/homepage.php" class="navbar-brand">CFToolkit</a>	
 			    </div>
 		       
 		      	<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -43,33 +43,7 @@
 		      	</div>
 		    </div>
 		</nav>
-	
-	<!--	<nav class = "navbar navbar-inverse navbar-fixed-top" id ="my-navbar">
-			<div class = "container-fluid">
-			    <div class = "navbar-header">
-			      	<button type="button" class ="navbar-toggle" data-toggle = "collapse" data-target ="#navbar-collapse">
-				    	<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-				  	</button>
-		         	<a href="homepage.php" class="navbar-brand">CF-Toolkit</a>	
-			    </div>
-		       
-		      	<div class="collapse navbar-collapse" id="navbar-collapse">
-		        	<a href="#0" class="cd-signin btn btn-warning navbar-btn navbar-right">Sign Up</a>
-		        	<a href="#0" class="cd-signup btn btn-warning navbar-btn navbar-right">Sign In</a>
-		         	<ul class="nav navbar-nav">
-				        <li><a href="compete.php">Compete</a>
-				        <li><a href='allsub.php'>All Submissions</a>
-				        <li><a href="lastsub.php">Last Submissions</a>
-				        <li><a href="compare.php">Compare</a>
-				        <li><a href="bugecode.com">Bug-e-Code</a>
-				        <li><a href="notice.php">Notice</a>
-					</ul>
-		      	</div>
-		    </div>
-	   	</nav>    -->
+
 
 	   	<img src = "../images/wall.jpg" width='100%'>
         
