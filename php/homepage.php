@@ -9,9 +9,10 @@
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
-	    <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
-	    <script src="../js/modernizr.js"></script> <!-- Modernizr -->
+	    <link rel="stylesheet" href="../css/reset.css">
+	    <link rel="stylesheet" href="../css/style.css">
+	    <script src="../js/modernizr.js"></script>
+	    <script type="text/javascript" src="../js/homepage.js"></script>
 	</head>
 
 	<body>
@@ -44,18 +45,17 @@
 		    </div>
 		</nav>
 
-
-	   	<img src = "../images/wall.jpg" width='100%'>
+	   	<div id="textslide"><p>Prabhat</p></div>
         
 
-        <div class="cd-user-modal"> <!-- this is the entire modal form, including the background -->
-		<div class="cd-user-modal-container"> <!-- this is the container wrapper -->
+        <div class="cd-user-modal"> 
+		<div class="cd-user-modal-container"> 
 			<ul class="cd-switcher">
 				<li><a href="#0">Sign in</a></li>
 				<li><a href="#0">New account</a></li>
 			</ul>
 
-			<div id="cd-login"> <!-- log in form -->
+			<div id="cd-login"> 
 				<form class="cd-form">
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signin-email">E-mail</label>
@@ -81,32 +81,16 @@
 				</form>
 				
 				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div> <!-- cd-login -->
+			</div> 
 
-			<div id="cd-signup"> <!-- sign up form -->
+			<div id="cd-signup"> 
 				<form class="cd-form">
-				<!--	<p class="fieldset">
-						<label class="image-replace cd-username" for="signup-username">Username</label>
-						<input class="full-width has-padding has-border" id="signup-username" type="text" placeholder="Username">
-						<span class="cd-error-message">Error message here!</span>
-					</p>   -->
 
 					<p class="fieldset">
 						<label class="image-replace cd-email" for="signup-email">E-mail</label>
 						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
 						<span class="cd-error-message">Error message here!</span>
 					</p>
-
-               <!--
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signup-password">Password</label>
-						<input class="full-width has-padding has-border" id="signup-password" type="text"  placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a>
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-				-->	
 
 					<p class="fieldset">
 						<input type="checkbox" id="accept-terms">
@@ -118,10 +102,7 @@
 					</p>
 				</form>
 
-				<!-- <a href="#0" class="cd-close-form">Close</a> -->
-			</div> <!-- cd-signup -->
-
-			<div id="cd-reset-password"> <!-- reset password form -->
+			<div id="cd-reset-password"> 
 				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
 
 				<form class="cd-form">
@@ -137,10 +118,10 @@
 				</form>
 
 				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
-			</div> <!-- cd-reset-password -->
+			</div> 
 			<a href="#0" class="cd-close-form">Close</a>
-		</div> <!-- cd-user-modal-container -->
-	</div> <!-- cd-user-modal -->
+		</div> 
+	</div> 
         
  
 
