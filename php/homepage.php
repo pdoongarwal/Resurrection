@@ -45,7 +45,7 @@
 		    </div>
 		</nav>
 
-	   	<div id="textslide"><p>Prabhat</p></div>
+	   	<div id="textslide"><p>Welcome to CF Toolkit</p></div>
         
 
         <div class="cd-user-modal"> 

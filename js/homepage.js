@@ -1,19 +1,20 @@
 var quotes = [
     "quote1",
     "quote2",
-    "quote3",
-    "quote4",
-    "quote5",
+    "quote3"
 ];
 
-var i = 0;
+var i = -1;
 
 setInterval(function() {
-$("#textslide").html(quotes[i]);
-    if (i == quotes.length) {
-        i = 0;
-    }
-    else {
+    $("#textslide").fadeOut(2000);
+    var delay = 3000;
+    setTimeout(function() {
         i++;
-    }
-}, 5 * 1000);
+        $("#textslide").html(quotes[i]);
+        $("#textslide").fadeIn(2000);
+        if (i == quotes.length-1) {
+            i = -1;
+        }
+    }, delay);   
+}, 6 * 1000);
