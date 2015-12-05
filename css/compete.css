@@ -4,6 +4,9 @@
 }
 #my-navbar {
 	background-color: #212121;
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
 }
 .jumbotron {
 	background-color: #212121;

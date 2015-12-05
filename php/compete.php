@@ -25,7 +25,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 				  	</button>
-		         	<a href="../php/homepage.php" class="navbar-brand">CF-Toolkit</a>	
+		         	<a href="../php/homepage.php" class="navbar-brand">CFToolkit</a>	
 			    </div>
 		       
 		      	<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -75,6 +75,13 @@
 	    <div class="container">
 
 			<div id="table">
+				<?php
+		            if(!isset($_GET['coder1']) ||  !isset($_GET['coder2']))
+		            {
+		              die();
+		            }
+		    	?>
+
 				<?php
 
 					function getNumberFromRank($rank) {
