@@ -42,20 +42,18 @@
 
 
 
-		<div class="jumbotron" id="search">
+		<div class="jumbotron">
 
-	   		<br>
+	   		<br><br><br>
 	      
 	      	<div class="container text-center">
-	      		<h1>Let the Comparison Begin!</h1>
-	      		<p></p>
 	      		
-	      		<div class="row">
+	      		<div class="row" id="searchBox">
 				  	<form action="lastsub.php" method="post">
 						<div class="col-lg-6">
 							<div class="input-group">
 							    <span class="input-group-addon" id="sizing-addon1">@</span>
-							    <input type="text" class="form-control" placeholder="Search for..." name='coder'>
+							    <input type="text" class="form-control" placeholder="Enter a username..." name='coder'>
 							    <span class="input-group-btn">
 								    <button class="btn btn-default" type="submit">Go!</button>
 							    </span>

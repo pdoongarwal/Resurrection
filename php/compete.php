@@ -76,7 +76,7 @@
 
 			<div id="table">
 				<?php
-		            if(!isset($_GET['coder1']) ||  !isset($_GET['coder2']))
+		            if(!isset($_POST['coder1']) ||  !isset($_POST['coder2']))
 		            {
 		              die();
 		            }
@@ -116,7 +116,7 @@
 
 					
 					$url="http://codeforces.com/api/user.info?handles=".$coder1;
-					$proxy='172.31.102.14:3128';
+					$proxy='172.31.102.29:3128';
 					$proxyauth='edcguest:edcguest';
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
