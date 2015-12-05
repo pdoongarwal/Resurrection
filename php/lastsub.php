@@ -42,6 +42,165 @@
 
 
 
+		<div class="jumbotron" id="search">
+
+	   		<br>
+	      
+	      	<div class="container text-center">
+	      		<h1>Let the Comparison Begin!</h1>
+	      		<p></p>
+	      		
+	      		<div class="row">
+				  	<form action="lastsub.php" method="post">
+						<div class="col-lg-6">
+							<div class="input-group">
+							    <span class="input-group-addon" id="sizing-addon1">@</span>
+							    <input type="text" class="form-control" placeholder="Search for..." name='coder'>
+							    <span class="input-group-btn">
+								    <button class="btn btn-default" type="submit">Go!</button>
+							    </span>
+							</div><!-- /input-group -->
+						</div><!-- /.col-lg-6 -->
+					</form>
+				</div><!-- /.row -->
+			</div>
+	    </div>
+
+
+	    <div class="container">
+
+			<div id="table">
+				<?php
+		            if(!isset($_POST['coder'])) {
+		              die();
+		            }
+		    	?>
+				
+		        <?php
+
+			        $coder=$_POST['coder'];
+			        $url="http://codeforces.com/api/user.info?handles=".$coder;
+		            $proxy='172.31.102.14:3128';
+					$proxyauth='edcguest:edcguest';
+					$ch = curl_init();
+					curl_setopt($ch, CURLOPT_URL, $url);
+
+					curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+
+
+					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+					$response = curl_exec($ch);  //getting the response from the site in JSON format
+					curl_close($ch);
+
+					$response=json_decode($response,true);
+		            //values for coder
+		                  
+		            $response=$response['result'];
+		            $response=$response[0];
+		            $rating=$response['rating'];
+		            echo $coder.": ".$rating;
+		        ?>
+			</div>
+		</div>
+
+
+
+		<div id="show_list">
+      		<table class="table table-condensed">
+        		<thead>
+          			<tr>
+            			<th><center>#</center></th>
+            			<th><center>Index</center></th>
+            			<th><center>Problem Name</center></th>
+            			<th><center>Verdict</center></th>
+          			</tr>
+        		</thead>
+        		
+        		<tbody>
+        			<?php 
+					  	$coder1=$_POST['coder'];
+	                  	//making http connection
+	                  	$url="http://codeforces.com/api/user.status?handle=".$coder;
+	                  	$proxy='172.31.102.14:3128';
+						$proxyauth='edcguest:edcguest';
+						$ch = curl_init();
+						curl_setopt($ch, CURLOPT_URL, $url);
+
+						curl_setopt($ch,CURLOPT_PROXY,$proxy);
+						curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+
+
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+						$response = curl_exec($ch);  //getting the response from the site in JSON format
+						curl_close($ch);
+
+						$response=json_decode($response,true);
+	                  	//values for coder1
+	                  	if($response['status']!="OK") {
+	                    	echo "Enter a Valid Username";
+	                    	die();
+	                  	}
+	                  	
+	                  	$response=$response['result'];
+            
+			            for($i=0; $i<15; $i++)
+			            { 
+			                  
+			                $temp=$response[$i];
+			                $contest_id=$temp['problem']['contestId'];
+			                $index=$temp['problem']['index'];
+			                $qname=$temp['problem']['name'];
+			                $verdict=$temp['verdict'];
+			                $id=$temp['id'];
+			                if($verdict!="OK")
+			                    $ch1="red";
+			                else
+			                    $ch1="green";
+                  	?>
+
+                  	<?php
+                    	if($contest_id>10000) {
+                        	$new_link="http://codeforces.com/gym/".$contest_id."/attachments";
+                        	$new_link2="http://codeforces.com/gym/".$contest_id."/submission/".$id;
+                      	}
+                      	else {
+                        	$new_link="http://codeforces.com/problemset/problem/".$contest_id."/".$index;
+                        	$new_link2="http://codeforces.com/contest/".$contest_id."/submission/".$id;
+                      	}
+                  	?>
+	              	<tr>
+	                	<center>
+	                		<td><center><?php echo $i+1; ?></center></td>
+	                
+	                		<td><center><font style="color : <?php echo $c1 ?>;"> <?php echo $index; ?> </font></center></td>
+	                
+	                		<td>
+	                			<center>
+	                				<font style="color : <?php echo $c1 ?>;"> 
+	                  			    	<a href="<?php echo $new_link; ?>" target="_blank">
+	                    					<?php echo $qname ?> 
+	                    				</a>
+	                  				</font>
+	                  			</center>
+	                  		</td>
+	                
+	                		<td><center>
+	                			<font style="color : <?php echo $ch1 ?>;"> 
+	                				<a href="<?php echo $new_link2; ?>" target="_blank">
+	                				<font style="color : <?php echo $ch1 ?>;"> 
+	                				<b><?php echo $verdict; ?></b> 
+	                			</font>
+	                		</center></td>
+	                	</center>
+	              	</tr>
+              
+        			<?php
+        			    }
+        			?>
+      			</tbody>
+          	</table>
+    	</div>
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	    <script src="../js/bootstrap.min.js"></script>
