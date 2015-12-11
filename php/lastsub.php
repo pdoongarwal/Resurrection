@@ -33,11 +33,7 @@
 				        <li><a href='allsub.php'>All Submissions</a>
 				        <li><a href="lastsub.php">Last Submissions</a>
 				        <li><a href="compare.php">Compare</a>
-<<<<<<< HEAD
 				        <li><a href="bugecode.php">Bug-e-Code</a>
-=======
-				        <li><a href="bugecode.com">Bug-e-Code</a>
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 				        <li><a href="notice.php">Notice</a>
 					</ul>
 		      	</div>

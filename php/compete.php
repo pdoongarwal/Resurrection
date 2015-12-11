@@ -34,11 +34,7 @@
 				        <li><a href='allsub.php'>All Submissions</a>
 				        <li><a href="lastsub.php">Last Submissions</a>
 				        <li><a href="compare.php">Compare</a>
-<<<<<<< HEAD
 				        <li><a href="bugecode.php">Bug-e-Code</a>
-=======
-				        <li><a href="bugecode.com">Bug-e-Code</a>
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 				        <li><a href="notice.php">Notice</a>
 					</ul>
 		      	</div>
@@ -87,10 +83,7 @@
 		    	?>
 
 				<?php
-<<<<<<< HEAD
 
-=======
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 					function getNumberFromRank($rank) {
 						if($rank=='newbie')
 							return 1;
@@ -114,15 +107,6 @@
 							return 10;
 					}
 
-<<<<<<< HEAD
-=======
-					if(isset($_POST['coder1']) && isset($_POST['coder2'])){
-						$coder1=$_POST['coder1'];
-                        $coder2=$_POST['coder2'];
-				    }		
-
-
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 
 					if(isset($_POST['coder1']) && isset($_POST['coder2'])){
 						$coder1=$_POST['coder1'];
@@ -139,16 +123,6 @@
 
 					curl_setopt($ch,CURLOPT_PROXY,$proxy);
 					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
-<<<<<<< HEAD
-=======
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-					$response = curl_exec($ch);  //getting the response from the site in JSON format
-					curl_close($ch);
-
-
-					curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -177,12 +151,9 @@
 					$name1.=$response['lastName'];
 					$contribution1=$response['contribution'];
 					$registartionTimeSeconds1=$response['registrationTimeSeconds'];
-<<<<<<< HEAD
 
                     
 
-=======
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 					
 					$url="http://codeforces.com/api/user.info?handles=".$coder2;
 					$proxy='172.31.102.14:3128';
@@ -192,16 +163,6 @@
 
 					curl_setopt($ch,CURLOPT_PROXY,$proxy);
 					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
-<<<<<<< HEAD
-=======
-					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-					$response = curl_exec($ch);  //getting the response from the site in JSON format
-					curl_close($ch);
-
-
-					curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -231,17 +192,6 @@
 					$contribution2=$response['contribution'];
 					$registartionTimeSeconds2=$response['registrationTimeSeconds'];
 
-<<<<<<< HEAD
-=======
-					$totalrating = $rating1 + $rating2;
-					$percent1 = ROUND($rating1*100/$totalrating);
-					$percent2 = ROUND($rating2*100/$totalrating);
-					$totalmaxrating = $maxrating1 + $maxrating2;
-					$maxpercent1 = ROUND($maxrating1*100/$totalmaxrating);
-					$maxpercent2 = ROUND($maxrating2*100/$totalmaxrating);
-
-
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 
 
 
@@ -262,22 +212,13 @@
 						$contripercent1 = ROUND($contribution1*100/$totalcontribution);
 						$contripercent2 = ROUND($contribution2*100/$totalcontribution);
 					}
-<<<<<<< HEAD
 
 
 
-=======
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 					$val_rank1 = getNumberFromRank($rank1);
 					$val_rank2 = getNumberFromRank($rank2);
 					$val_maxrank1 = getNumberFromRank($maxrank1);
 					$val_maxrank2 = getNumberFromRank($maxrank2);
-<<<<<<< HEAD
-=======
-					$totalval_rank = $val_rank1 + $val_rank2;
-					$val_percent1 = ROUND($val_rank1*100/$totalval_rank);
-					$val_percent2 = ROUND($val_rank2*100/$totalval_rank);
->>>>>>> 272e7ac7815a3314752a120f8abfb6ecc50c59bf
 
 					$totalval_rank = $val_rank1 + $val_rank2;
 					$val_percent1 = ROUND($val_rank1*100/$totalval_rank);
