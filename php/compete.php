@@ -83,10 +83,6 @@
 		    	?>
 
 				<?php
-<<<<<<< HEAD
-=======
-
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					function getNumberFromRank($rank) {
 						if($rank=='newbie')
 							return 1;
@@ -109,34 +105,33 @@
 						else
 							return 10;
 					}
-<<<<<<< HEAD
-					if(isset($_POST['coder1']) && isset($_POST['coder2'])){
-						$coder1=$_POST['coder1'];
-                        $coder2=$_POST['coder2'];
-				    }		
-=======
-
 
 					if(isset($_POST['coder1']) && isset($_POST['coder2'])){
 						$coder1=$_POST['coder1'];
                         $coder2=$_POST['coder2'];
+				    }		
+
+
+
+					if(isset($_POST['coder1']) && isset($_POST['coder2'])){
+						$coder1=$_POST['coder1'];
+                        $coder2=$_POST['coder2'];
 
 				    }		
 
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					
 					$url="http://codeforces.com/api/user.info?handles=".$coder1;
 					$proxy='172.31.102.29:3128';
 					$proxyauth='edcguest:edcguest';
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
-<<<<<<< HEAD
+
 					curl_setopt($ch,CURLOPT_PROXY,$proxy);
 					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					$response = curl_exec($ch);  //getting the response from the site in JSON format
 					curl_close($ch);
-=======
+
 
 					curl_setopt($ch,CURLOPT_PROXY,$proxy);
 					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
@@ -146,7 +141,6 @@
 					$response = curl_exec($ch);  //getting the response from the site in JSON format
 					curl_close($ch);
 
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					$response=json_decode($response,true);  //converting it to PHP friendly format
 					//values for coder1
 					if($response['status']=="FAILED")
@@ -169,26 +163,19 @@
 					$name1.=$response['lastName'];
 					$contribution1=$response['contribution'];
 					$registartionTimeSeconds1=$response['registrationTimeSeconds'];
-<<<<<<< HEAD
-                    
-=======
-
-                    
-
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					
 					$url="http://codeforces.com/api/user.info?handles=".$coder2;
 					$proxy='172.31.102.14:3128';
 					$proxyauth='edcguest:edcguest';
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
-<<<<<<< HEAD
+
 					curl_setopt($ch,CURLOPT_PROXY,$proxy);
 					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 					$response = curl_exec($ch);  //getting the response from the site in JSON format
 					curl_close($ch);
-=======
+
 
 					curl_setopt($ch,CURLOPT_PROXY,$proxy);
 					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
@@ -198,7 +185,6 @@
 					$response = curl_exec($ch);  //getting the response from the site in JSON format
 					curl_close($ch);
 
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					$response=json_decode($response,true);  //converting it to PHP friendly format
 					//values for coder1
 					if($response['status']=="FAILED")
@@ -221,14 +207,14 @@
 					$name2.=$response['lastName'];
 					$contribution2=$response['contribution'];
 					$registartionTimeSeconds2=$response['registrationTimeSeconds'];
-<<<<<<< HEAD
+
 					$totalrating = $rating1 + $rating2;
 					$percent1 = ROUND($rating1*100/$totalrating);
 					$percent2 = ROUND($rating2*100/$totalrating);
 					$totalmaxrating = $maxrating1 + $maxrating2;
 					$maxpercent1 = ROUND($maxrating1*100/$totalmaxrating);
 					$maxpercent2 = ROUND($maxrating2*100/$totalmaxrating);
-=======
+
 
 
 
@@ -241,7 +227,6 @@
 					$maxpercent1 = ROUND($maxrating1*100/$totalmaxrating);
 					$maxpercent2 = ROUND($maxrating2*100/$totalmaxrating);
 
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					$totalcontribution = $contribution1 + $contribution2;
 					if($totalcontribution == 0) {
 						$contripercent1 = 50;
@@ -251,27 +236,18 @@
 						$contripercent1 = ROUND($contribution1*100/$totalcontribution);
 						$contripercent2 = ROUND($contribution2*100/$totalcontribution);
 					}
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					$val_rank1 = getNumberFromRank($rank1);
 					$val_rank2 = getNumberFromRank($rank2);
 					$val_maxrank1 = getNumberFromRank($maxrank1);
 					$val_maxrank2 = getNumberFromRank($maxrank2);
-<<<<<<< HEAD
 					$totalval_rank = $val_rank1 + $val_rank2;
 					$val_percent1 = ROUND($val_rank1*100/$totalval_rank);
 					$val_percent2 = ROUND($val_rank2*100/$totalval_rank);
-=======
 
 					$totalval_rank = $val_rank1 + $val_rank2;
 					$val_percent1 = ROUND($val_rank1*100/$totalval_rank);
 					$val_percent2 = ROUND($val_rank2*100/$totalval_rank);
 
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
 					$totalval_maxrank = $val_maxrank1 + $val_maxrank2;
 					$maxval_percent1 = ROUND($val_maxrank1*100/$totalval_maxrank);
 					$maxval_percent2 = ROUND($val_maxrank2*100/$totalval_maxrank);
@@ -521,8 +497,4 @@
 	    <script src="../js/bootstrap.min.js"></script>
 	    <script src="../js/main.js"></script>
 	</body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 427c9efcf07c393f51d4cc1f3a2e89d4ca546bb0
