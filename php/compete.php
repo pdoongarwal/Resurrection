@@ -34,7 +34,7 @@
 				        <li><a href='allsub.php'>All Submissions</a>
 				        <li><a href="lastsub.php">Last Submissions</a>
 				        <li><a href="compare.php">Compare</a>
-				        <li><a href="bugecode.com">Bug-e-Code</a>
+				        <li><a href="bugecode.php">Bug-e-Code</a>
 				        <li><a href="notice.php">Notice</a>
 					</ul>
 		      	</div>
