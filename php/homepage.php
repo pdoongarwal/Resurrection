@@ -32,14 +32,11 @@
 			    </div>
 		       
 		      	<div class="collapse navbar-collapse" id="navbar-collapse">
-		        	<a href="#0" class="cd-signin btn btn-warning navbar-btn navbar-right">Sign In</a>
-		        	<a href="#0" class="cd-signup btn btn-warning navbar-btn navbar-right">Sign Up</a>
 		         	<ul class="nav navbar-nav">
 				        <li><a href="compete.php">Compete</a>
 				        <li><a href='allsub.php'>All Submissions</a>
 				        <li><a href="lastsub.php">Last Submissions</a>
 				        <li><a href="compare.php">Compare</a>
-				        <li><a href="notice.php">Notice</a>
 				        <li><a href="http://www.bugecode.com/">Bug-e-Code</a>
 					</ul>
 		      	</div>
@@ -49,78 +46,7 @@
 	   	<div id="textslide"><p>Welcome to CF Toolkit</p></div>
         
 
-        <div class="cd-user-modal"> 
-		<div class="cd-user-modal-container"> 
-			<ul class="cd-switcher">
-				<li><a href="#0">Sign in</a></li>
-				<li><a href="#0">New account</a></li>
-			</ul>
-
-			<div id="cd-login"> 
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="signin-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signin-email" type="email" placeholder="E-mail">
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<label class="image-replace cd-password" for="signin-password">Password</label>
-						<input class="full-width has-padding has-border" id="signin-password" type="text"  placeholder="Password">
-						<a href="#0" class="hide-password">Hide</a>
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input type="checkbox" id="remember-me" checked>
-						<label for="remember-me">Remember me</label>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width" type="submit" value="Login">
-					</p>
-				</form>
-				
-				<p class="cd-form-bottom-message"><a href="#0">Forgot your password?</a></p>
-			</div> 
-
-			<div id="cd-signup"> 
-				<form class="cd-form">
-
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="signup-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="signup-email" type="email" placeholder="E-mail">
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-                    <div class="g-recaptcha" data-sitekey="6LfPchITAAAAAEoJDHZDo6cYHtu5osOyYMFn9gCE"></div>
-					
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Create account">
-					</p>
-
-				</form>
-
-			<div id="cd-reset-password"> 
-				<p class="cd-form-message">Lost your password? Please enter your email address. You will receive a link to create a new password.</p>
-
-				<form class="cd-form">
-					<p class="fieldset">
-						<label class="image-replace cd-email" for="reset-email">E-mail</label>
-						<input class="full-width has-padding has-border" id="reset-email" type="email" placeholder="E-mail">
-						<span class="cd-error-message">Error message here!</span>
-					</p>
-
-					<p class="fieldset">
-						<input class="full-width has-padding" type="submit" value="Reset password">
-					</p>
-				</form>
-
-				<p class="cd-form-bottom-message"><a href="#0">Back to log-in</a></p>
-			</div> 
-			<a href="#0" class="cd-close-form">Close</a>
-		</div> 
-	</div> 
+         
         
  
 

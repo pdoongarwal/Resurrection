@@ -34,7 +34,6 @@
 				        <li><a href='allsub.php'>All Submissions</a>
 				        <li><a href="lastsub.php">Last Submissions</a>
 				        <li><a href="compare.php">Compare</a>
-				        <li><a href="notice.php">Notice</a>
 				        <li><a href="http://www.bugecode.com/">Bug-e-Code</a>
 					</ul>
 		      	</div>
@@ -121,8 +120,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -161,8 +160,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
