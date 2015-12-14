@@ -33,8 +33,8 @@
 				        <li><a href='allsub.php'>All Submissions</a>
 				        <li><a href="lastsub.php">Last Submissions</a>
 				        <li><a href="compare.php">Compare</a>
-				        <li><a href="bugecode.php">Bug-e-Code</a>
 				        <li><a href="notice.php">Notice</a>
+				        <li><a href="http://www.bugecode.com/">Bug-e-Code</a>
 					</ul>
 		      	</div>
 		    </div>
@@ -50,7 +50,7 @@
 	      		<p></p>
 	      		
 	      		<div class="row">
-				  	<form action="compete.php" method="post">
+				  	<form action="compare.php" method="post">
 					  	<div class="col-lg-6">
 						    <div class="input-group">
 						      <span class="input-group-addon" id="sizing-addon1">@</span>
@@ -79,7 +79,7 @@
 				<?php
 		            if(!isset($_POST['coder1']) ||  !isset($_POST['coder2']))
 		            {
-		              die();
+		              	die();
 		            }
 		    	?>
 
@@ -89,7 +89,6 @@
 					if(isset($_POST['coder1']) && isset($_POST['coder2'])){
 						$coder1=$_POST['coder1'];
                         $coder2=$_POST['coder2'];
-
 				    }		
 
 					
@@ -99,8 +98,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -114,6 +113,12 @@
 					  echo "INVALID USERNAME1 ".$coder1;
 					   die();
 					}
+
+					$response=$response['result'];
+                  	$response=$response[0];
+                  	$handle1=$response['handle'];
+                  	$rank1=$response['rank'];
+                  	$rating1=$response['rating'];
 					
 
                     
@@ -125,8 +130,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -140,7 +145,20 @@
 					  echo "INVALID USERNAME ".$coder2;
 					   die();
 					}
-					
+
+					$response=$response['result'];
+                  	$response=$response[0];
+                  	$handle2=$response['handle'];
+                  	$rank2=$response['rank'];
+                  	$rating2=$response['rating'];	
+				?>
+
+				<?php
+					echo $rank1." : ".$coder1;
+					echo "<br>Rating : ".$rating1;
+					echo "<br>";
+					echo $rank2." : ".$coder2;
+					echo "<br>Rating : ".$rating2;
 				?>
 			</div>
 		</div>
