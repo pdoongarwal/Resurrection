@@ -43,6 +43,15 @@
 		    </div>
 		</nav>
 
+		<div class="jumbotron" id="search">
+
+	   		<br>
+	      
+	      	<div class="container text-center">
+	      		<h1>Notice</h1>
+			</div>
+	    </div>
+
 	   	
         
  
