@@ -92,12 +92,12 @@
 
 					
 					$url="http://codeforces.com/api/user.info?handles=".$coder1;
-					$proxy='172.31.102.29:3128';
+					$proxy='172.31.102.14:3128';
 					$proxyauth='edcguest:edcguest';
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
+				//	curl_setopt($ch,CURLOPT_PROXY,$proxy);
 					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
@@ -129,8 +129,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+				//	curl_setopt($ch,CURLOPT_PROXY,$proxy);
+				//	curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -158,7 +158,322 @@
 					echo "<br>";
 					echo $rank2." : ".$coder2;
 					echo "<br>Rating : ".$rating2;
-				?>
+					$coder1=$_POST['coder1'];
+				$url="http://codeforces.com/api/user.status?handle=".$coder1;
+                    $proxy='172.31.102.14:3128';
+                    $proxyauth='edcguest:edcguest';
+                    $ch =curl_init();
+                    curl_setopt($ch,CURLOPT_URL,$url);
+                 //   curl_setopt($ch,CURLOPT_PROXY,$proxy);
+                 //   curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+
+                    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+                    $response=curl_exec($ch);
+                    curl_close($ch);
+                    $response=json_decode($response,true);
+                    if($response['status']!="OK")
+                    {
+                    	echo "Enter a valid Username";
+                    	die();
+                    }
+                    $response=$response['result'];
+                    $arr1=array();
+                    $p=count($response);
+                    $uc1=0;
+            for($i=0; $i<$p; $i++)
+            { 
+                  
+                  $temp=$response[$i];
+                  $contest_id=$temp['problem']['contestId'];
+                  $index=$temp['problem']['index'];
+                  $qname=$temp['problem']['name'];
+                  $verdict=$temp['verdict'];
+                  $id=$temp['id'];
+                  if($verdict=="OK")
+                  {
+                  	$uc1=$uc1+1;
+                    $arr1[$contest_id.$index][0]=$contest_id;
+                    $arr1[$contest_id.$index][1]=$index;
+                    $arr1[$contest_id.$index][2]=$qname;
+                    $arr1[$contest_id.$index][3]=1;
+                    $arr1[$contest_id.$index][5]=$id;
+                  }
+  
+            }
+					 ?>
+					  <?php
+					  $coder2=$_POST['coder2'];
+					$url="http://codeforces.com/api/user.status?handle=".$coder2;
+                    $proxy='172.31.102.14:3128';
+                    $pss='edcguest:edcguest';
+                    $ch =curl_init();
+                    curl_setopt($ch,CURLOPT_URL,$url);
+                   // curl_setopt($ch,CURLOPT_PROXY,$proxy);
+                   // curl_setopt($ch,CURLOPT_PROXYUSERPWD,$pss);
+
+                    curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+                    $response=curl_exec($ch);
+                    curl_close($ch);
+                    $response=json_decode($response,true);
+
+                    if($response['status']=="FAILED")
+                    {
+                    	echo "INVALID Ussername ".$coder2;
+         				die();
+                    }
+                    $uc2=0;
+                    $response=$response['result'];
+                    $p=count($response);
+					for($i=0;$i<$p;$i++)
+					{
+						$temp=$response[$i];
+						$contest_id=$temp['problem']['contestId'];
+						$index=$temp['problem']['index'];
+						$qname=$temp['problem']['name'];
+						$verdict=$temp['verdict'];
+						$id=$temp['id'];
+						$s=0;
+						if($verdict=="OK")
+						{	$uc2+=1;
+							$arr1[$contest_id.$index][0]=$contest_id;
+							$arr1[$contest_id.$index][1]=$index;
+							$arr1[$contest_id.$index][2]=$qname;
+							$arr1[$contest_id.$index][4]=1;
+							#	if(is_null($arr1[$contest_id.$index][3]))
+							#	{$arr1[$contest_id.$index][3]=0;		
+						     #       $arr1[$contest_id.$index][5]=0;
+						      #  }
+							$arr1[$contest_id.$index][6]=$id;
+							
+
+						}
+
+					}
+					$c1=0;$c2=0;$common=0;
+					krsort($arr1);
+					$i=0;
+					?>
+					
+					<table class="table" width='70%'>
+					<thead>
+						<tr>
+						<th><center>#</center></th>
+           				<th><center>PId</center></th>
+            			<th><center>Problem Name</center></th>
+            			<th><center><?php echo $_POST['coder1']."'s solutions id"; ?><br>solutions</center></th>
+            			<th><center><?php echo $_POST['coder2']."'s solutions id"; ?><br>solutions</center></th>
+           			    </tr>
+					</thead>
+						<tbody>
+
+					<?php
+					foreach ($arr1 as $x=>$x_ind)
+					{
+
+						 if(isset($x_ind[3]))
+						 {
+						 	if(isset($x_ind[4]))
+						 	{
+						 		if($x_ind[3]==1 && $x_ind[4]==1)
+						 		 {
+						 		 	?>
+						 		 	<tr>
+						 		 	<center>
+						 		 	<td><center><?php echo $i+1; ?></center></td>
+						 		 	<td><center><?php echo $x; ?></center></td>
+						 		 	<?php
+						 		 	$i=$i+1;
+						 		 	if($x_ind[0]>10000)
+                    				{
+                          			$new_link="http://codeforces.com/gym/".$x_ind[0]."/attachments";
+                          			$new_link2="http://codeforces.com/gym/".$x_ind[0]."/submission/".$x_ind[5];
+                          			$new_link3="http://codeforces.com/gym/".$x_ind[0]."/submission/".$x_ind[6];
+                      				}
+                      				else
+                      				{
+                          			$new_link="http://codeforces.com/problemset/problem/".$x_ind[0]."/".$x_ind[1];
+                          			$new_link2="http://codeforces.com/contest/".$x_ind[0]."/submission/".$x_ind[5];
+                          			$new_link3="http://codeforces.com/contest/".$x_ind[0]."/submission/".$x_ind[6];
+                      				}
+
+                					?>
+						 		 	<td><center><font style="color : blue"> 
+                              		<a href="<?php echo $new_link;  ?>" target="_blank">
+                                			<?php echo $x_ind[2] ?> 
+                              		</a>
+                          			</font></center>
+                          			</td>
+                          			<td><center><font style="color : blue"> 
+                              		<a href="<?php echo $new_link;  ?>" target="_blank">
+                                			<?php echo $x_ind[5] ?> 
+                              		</a>
+                          			</font></center>
+                          			</td>
+                          			<td><center><font style="color : blue"> 
+                              		<a href="<?php echo $new_link;  ?>" target="_blank">
+                                			<?php echo $x_ind[6] ?> 
+                              		</a>
+                          			</font></center>
+                          			</td>
+						 		 	
+
+						 		 	</center>
+						 		 	</tr>
+						 		 	<?php
+						 		 }
+						 	}
+						 }
+						 
+
+						
+
+					}
+					?>
+					</tbody>
+
+						</table>
+					<table class="table" width='70%'>
+					<thead>
+						<tr>
+						<th><center>#</center></th>
+           				<th><center>PId</center></th>
+            			<th><center>Problem Name</center></th>
+            			<th><center><?php echo $_POST['coder1']."'s solutions id"; ?><br>solutions</center></th>
+            			
+           			    </tr>
+					</thead>
+						<tbody>
+
+						<?php
+						$i=0;
+						foreach ($arr1 as $x=>$x_ind)
+						{
+
+						 if(isset($x_ind[3]))
+						 {
+						 	if(!isset($x_ind[4]))
+						 	{
+						 		if($x_ind[3]==1 )
+						 		 {
+						 		 	?>
+						 		 	<tr>
+						 		 	<center>
+						 		 	<td><center><?php echo $i+1; ?></center></td>
+						 		 	<td><center><?php echo $x; ?></center></td>
+						 		 	<?php
+						 		 	$i=$i+1;
+						 		 	if($x_ind[0]>10000)
+                    				{
+                          			$new_link="http://codeforces.com/gym/".$x_ind[0]."/attachments";
+                          			$new_link2="http://codeforces.com/gym/".$x_ind[0]."/submission/".$x_ind[5];
+                          			}
+                      				else
+                      				{
+                          			$new_link="http://codeforces.com/problemset/problem/".$x_ind[0]."/".$x_ind[1];
+                          			$new_link2="http://codeforces.com/contest/".$x_ind[0]."/submission/".$x_ind[5];
+                          			
+                      				}
+
+                					?>
+						 		 	<td><center><font style="color : blue"> 
+                              		<a href="<?php echo $new_link;  ?>" target="_blank">
+                                			<?php echo $x_ind[2] ?> 
+                              		</a>
+                          			</font></center>
+                          			</td>
+                          			<td><center><font style="color : blue"> 
+                              		<a href="<?php echo $new_link;  ?>" target="_blank">
+                                			<?php echo $x_ind[5] ?> 
+                              		</a>
+                          			</font></center>
+                          			</td>
+                        
+						 		 	
+
+						 		 	</center>
+						 		 	</tr>
+						 		 	<?php
+						 		 }
+						 	}
+						 }
+						}
+
+						?>
+
+						</tbody>
+
+						</table>
+						<table class="table" width='70%'>
+					<thead>
+						<tr>
+						<th><center>#</center></th>
+           				<th><center>PId</center></th>
+            			<th><center>Problem Name</center></th>
+            			<th><center><?php echo $_POST['coder2']."'s solutions id"; ?><br>solutions</center></th>
+            			
+           			    </tr>
+					</thead>
+						<tbody>
+
+						<?php
+						$i=0;
+						foreach ($arr1 as $x=>$x_ind)
+						{
+
+						 if(!isset($x_ind[3]))
+						 {
+						 	if(isset($x_ind[4]))
+						 	{
+						 		if($x_ind[4]==1 )
+						 		 {
+						 		 	?>
+						 		 	<tr>
+						 		 	<center>
+						 		 	<td><center><?php echo $i+1; ?></center></td>
+						 		 	<td><center><?php echo $x; ?></center></td>
+						 		 	<?php
+						 		 	$i=$i+1;
+						 		 	if($x_ind[0]>10000)
+                    				{
+                          			$new_link="http://codeforces.com/gym/".$x_ind[0]."/attachments";
+                          			$new_link2="http://codeforces.com/gym/".$x_ind[0]."/submission/".$x_ind[6];
+                          			}
+                      				else
+                      				{
+                          			$new_link="http://codeforces.com/problemset/problem/".$x_ind[0]."/".$x_ind[1];
+                          			$new_link2="http://codeforces.com/contest/".$x_ind[0]."/submission/".$x_ind[6];
+                          			
+                      				}
+
+                					?>
+						 		 	<td><center><font style="color : blue"> 
+                              		<a href="<?php echo $new_link;  ?>" target="_blank">
+                                			<?php echo $x_ind[2] ?> 
+                              		</a>
+                          			</font></center>
+                          			</td>
+                          			<td><center><font style="color : blue"> 
+                              		<a href="<?php echo $new_link;  ?>" target="_blank">
+                                			<?php echo $x_ind[6] ?> 
+                              		</a>
+                          			</font></center>
+                          			</td>
+                        
+						 		 	
+
+						 		 	</center>
+						 		 	</tr>
+						 		 	<?php
+						 		 }
+						 	}
+						 }
+						}
+
+						?>
+
+						</tbody>
+
+						</table>
 			</div>
 		</div>
 
