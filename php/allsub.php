@@ -1,16 +1,6 @@
 <html>
 	<style type="text/css">
-	.lefty{
-		line-height: 3px;
-		width:620px;
-		float:left;
-		padding :10px;
-	} 
-	.righty{
-		width:620px;
-		float: left;
-		padding:10px;
-			}
+	
 	</style>
 	<head>
 		<title>All Submissions</title>
@@ -20,9 +10,6 @@
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="../css/reset.css"> 
-	    <link rel="stylesheet" href="../css/style.css"> 
-	    <script src="../js/modernizr.js"></script>
 	    <link rel="stylesheet" type="text/css" href="../css/lastsub.css">
 	</head>
 
@@ -109,8 +96,8 @@
 		            $response=$response['result'];
 		            $response=$response[0];
 		            $rating=$response['rating'];
-		            echo $coder.": ".$rating;
 		        ?>
+		        <h3><?php echo $coder.": ".$rating; ?></h3>
 			</div>
 		</div>
 
@@ -147,8 +134,8 @@
 
 						$response=json_decode($response,true);
 	                  	//values for coder1
-	                  	if($response['status']!="OK") {
-	                    	echo "Enter a Valid Username";
+	                  	if($response['status']=="FAILED") {
+	                    	echo "Enter a Valid Username, You Know";
 	                    	die();
 	                  	}
 	                  	
@@ -381,7 +368,3 @@
 	    </div>
 	</body>
 </html>
-
-
-
-		

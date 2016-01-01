@@ -4,3 +4,14 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+.lefty{
+		line-height: 3px;
+		width:620px;
+		float:left;
+		padding :10px;
+} 
+.righty{
+	width:620px;
+	float: left;
+	padding:10px;
+}

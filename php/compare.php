@@ -7,10 +7,9 @@
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="../css/reset.css"> 
-	    <link rel="stylesheet" href="../css/style.css"> 
-	    <script src="../js/modernizr.js"></script>
-	    <link rel="stylesheet" type="text/css" href="../css/compare.css">
+        <link rel="stylesheet" type="text/css" href="../css/compare.css">
+	    
+
 	</head>
 
 	<body>
@@ -39,9 +38,8 @@
 		    </div>
 		</nav>
 
-
+		
 		<div class="jumbotron" id="search">
-
 	   		<br>
 	      
 	      	<div class="container text-center">
@@ -92,13 +90,13 @@
 
 					
 					$url="http://codeforces.com/api/user.info?handles=".$coder1;
-					$proxy='172.31.102.14:3128';
+					$proxy='172.31.102.29:3128';
 					$proxyauth='edcguest:edcguest';
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-				//	curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -124,13 +122,11 @@
 
 					
 					$url="http://codeforces.com/api/user.info?handles=".$coder2;
-					$proxy='172.31.102.14:3128';
-					$proxyauth='edcguest:edcguest';
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-				//	curl_setopt($ch,CURLOPT_PROXY,$proxy);
-				//	curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -141,7 +137,7 @@
 					//values for coder1
 					if($response['status']=="FAILED")
 					{
-					  echo "INVALID USERNAME ".$coder2;
+					  echo "INVALID USERNAME2 ".$coder2;
 					   die();
 					}
 
@@ -153,19 +149,12 @@
 				?>
 
 				<?php
-					echo $rank1." : ".$coder1;
-					echo "<br>Rating : ".$rating1;
-					echo "<br>";
-					echo $rank2." : ".$coder2;
-					echo "<br>Rating : ".$rating2;
 					$coder1=$_POST['coder1'];
-				$url="http://codeforces.com/api/user.status?handle=".$coder1;
-                    $proxy='172.31.102.14:3128';
-                    $proxyauth='edcguest:edcguest';
+					$url="http://codeforces.com/api/user.status?handle=".$coder1;
                     $ch =curl_init();
                     curl_setopt($ch,CURLOPT_URL,$url);
-                 //   curl_setopt($ch,CURLOPT_PROXY,$proxy);
-                 //   curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+                    curl_setopt($ch,CURLOPT_PROXY,$proxy);
+                    curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
                     $response=curl_exec($ch);
@@ -204,12 +193,10 @@
 					  <?php
 					  $coder2=$_POST['coder2'];
 					$url="http://codeforces.com/api/user.status?handle=".$coder2;
-                    $proxy='172.31.102.14:3128';
-                    $pss='edcguest:edcguest';
                     $ch =curl_init();
                     curl_setopt($ch,CURLOPT_URL,$url);
-                   // curl_setopt($ch,CURLOPT_PROXY,$proxy);
-                   // curl_setopt($ch,CURLOPT_PROXYUSERPWD,$pss);
+                    curl_setopt($ch,CURLOPT_PROXY,$proxy);
+                    curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
                     $response=curl_exec($ch);
@@ -253,15 +240,30 @@
 					krsort($arr1);
 					$i=0;
 					?>
+
+
+
+					<table class="table" width='70%'>
+						<thead>
+							<tr>
+								<th><center><?php echo $rank1." : ".$coder1; ?></center></td>
+								<th><center><?php echo "Rating : ".$rating1; ?></center></td>
+								<th><center><?php echo $rank2." : ".$coder2; ?></center></td>
+								<th><center><?php echo "Rating : ".$rating2; ?></center></td>
+							</tr>
+						</thead>
+					</table>
+
 					
+					<h3>Common Problems</h3>
 					<table class="table" width='70%'>
 					<thead>
 						<tr>
 						<th><center>#</center></th>
            				<th><center>PId</center></th>
             			<th><center>Problem Name</center></th>
-            			<th><center><?php echo $_POST['coder1']."'s solutions id"; ?><br>solutions</center></th>
-            			<th><center><?php echo $_POST['coder2']."'s solutions id"; ?><br>solutions</center></th>
+            			<th><center><?php echo $_POST['coder1']."'s solutions id"; ?></center></th>
+            			<th><center><?php echo $_POST['coder2']."'s solutions id"; ?></center></th>
            			    </tr>
 					</thead>
 						<tbody>
@@ -332,13 +334,14 @@
 					</tbody>
 
 						</table>
+					<h3><?php echo "Problems only by ".$coder1; ?></h3>
 					<table class="table" width='70%'>
 					<thead>
 						<tr>
 						<th><center>#</center></th>
            				<th><center>PId</center></th>
             			<th><center>Problem Name</center></th>
-            			<th><center><?php echo $_POST['coder1']."'s solutions id"; ?><br>solutions</center></th>
+            			<th><center><?php echo $_POST['coder1']."'s solutions id"; ?></center></th>
             			
            			    </tr>
 					</thead>
@@ -403,13 +406,14 @@
 						</tbody>
 
 						</table>
+						<h3><?php echo "Problems only by ".$coder2; ?></h3>
 						<table class="table" width='70%'>
 					<thead>
 						<tr>
 						<th><center>#</center></th>
            				<th><center>PId</center></th>
             			<th><center>Problem Name</center></th>
-            			<th><center><?php echo $_POST['coder2']."'s solutions id"; ?><br>solutions</center></th>
+            			<th><center><?php echo $_POST['coder2']."'s solutions id"; ?></center></th>
             			
            			    </tr>
 					</thead>

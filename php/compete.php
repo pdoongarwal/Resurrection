@@ -8,9 +8,6 @@
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="../css/reset.css"> <!-- CSS reset -->
-	    <link rel="stylesheet" href="../css/style.css"> <!-- Gem style -->
-	    <script src="../js/modernizr.js"></script> <!-- Modernizr -->
 		<link rel="stylesheet" type="text/css" href="../css/compete.css">
 	</head>
 
@@ -120,8 +117,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -160,8 +157,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-					//curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

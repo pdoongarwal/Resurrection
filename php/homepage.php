@@ -9,11 +9,7 @@
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="../css/reset.css">
-	    <link rel="stylesheet" href="../css/style.css">
-	    <script src="../js/modernizr.js"></script>
 	    <script type="text/javascript" src="../js/homepage.js"></script>
-	    <script src='https://www.google.com/recaptcha/api.js'></script>
 	</head>
 
 	<body>
