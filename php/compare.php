@@ -7,9 +7,7 @@
 	    <meta charset="UTF-8">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href='http://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
-	    <link rel="stylesheet" href="../css/reset.css"> 
-	    <link rel="stylesheet" href="../css/style.css"> 
-	    <script src="../js/modernizr.js"></script>
+	    
 	    <link rel="stylesheet" type="text/css" href="../css/compare.css">
 	</head>
 
@@ -97,8 +95,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-				//	curl_setopt($ch,CURLOPT_PROXY,$proxy);
-					//curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -129,8 +127,8 @@
 					$ch = curl_init();
 					curl_setopt($ch, CURLOPT_URL, $url);
 
-				//	curl_setopt($ch,CURLOPT_PROXY,$proxy);
-				//	curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+					curl_setopt($ch,CURLOPT_PROXY,$proxy);
+					curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
 
 					curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -164,8 +162,8 @@
                     $proxyauth='edcguest:edcguest';
                     $ch =curl_init();
                     curl_setopt($ch,CURLOPT_URL,$url);
-                 //   curl_setopt($ch,CURLOPT_PROXY,$proxy);
-                 //   curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
+                   curl_setopt($ch,CURLOPT_PROXY,$proxy);
+                   curl_setopt($ch,CURLOPT_PROXYUSERPWD,$proxyauth);
 
                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
                     $response=curl_exec($ch);
@@ -208,8 +206,8 @@
                     $pss='edcguest:edcguest';
                     $ch =curl_init();
                     curl_setopt($ch,CURLOPT_URL,$url);
-                   // curl_setopt($ch,CURLOPT_PROXY,$proxy);
-                   // curl_setopt($ch,CURLOPT_PROXYUSERPWD,$pss);
+                    curl_setopt($ch,CURLOPT_PROXY,$proxy);
+                    curl_setopt($ch,CURLOPT_PROXYUSERPWD,$pss);
 
                     curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
                     $response=curl_exec($ch);
