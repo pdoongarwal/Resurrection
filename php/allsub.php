@@ -24,7 +24,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 				  	</button>
-		         	<a href="../php/homepage.php" class="navbar-brand">CFToolkit</a>	
+		         	<a href="../index.php" class="navbar-brand">CFToolkit</a>	
 			    </div>
 		       
 		      	<div class="collapse navbar-collapse" id="navbar-collapse">
@@ -34,6 +34,7 @@
 				        <li><a href="lastsub.php">Last Submissions</a>
 				        <li><a href="compare.php">Compare</a>
 				        <li><a href="http://www.bugecode.com/">Bug-e-Code</a>
+				        <li><a href="aboutus.php">About Us</a>
 					</ul>
 		      	</div>
 		    </div>
